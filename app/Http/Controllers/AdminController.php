@@ -130,38 +130,6 @@ class AdminController extends Controller
 
         return redirect('/admin/list')->with('status', "Data Berhasil Diubah");
     }
-    public function hapus($id)
-    {
-        $paket = new Paket;
-        $gambar = Gambar::get()->where('id_paket', $id);
-
-        File::delete('storage/app/public/paket/'.$id);
-        $paket->where('id_paket', $id)->delete();
-        Gambar::where('id_paket', $id)->delete();
-        return redirect('/admin/list')->with('status', "Data Berhasil Dihapus");
-    }
-    public function listpack(Request $request)
-    {
-        $context = [
-            'nama_halaman' => "List Paket",
-            'allpaket' => Paket::all()
-        ];
-
-
-        return view('admin.listpack', $context);
-    }
-    public function order(Request $request)
-    {
-        $context = [
-            'nama_halaman' => "List Order",
-            'orda1' => Order::where('status_pembayaran',1)->get(),
-            'orda2' => Order::where('status_pembayaran',2)->get(),
-            'orda3' => Order::where('status_pembayaran',3)->orWhere('status_pembayaran',4)->get(),
-        ];
-
-
-        return view('admin.onodera', $context);
-    }
     public function store(Request $request)
     {
         $paket = new Paket;
@@ -236,5 +204,36 @@ class AdminController extends Controller
 
         return redirect('/admin/list')->with('status', "Data Berhasil Ditambah");
     }
-    
+    public function hapus($id)
+    {
+        $paket = new Paket;
+        $gambar = Gambar::get()->where('id_paket', $id);
+
+        File::delete('storage/app/public/paket/'.$id);
+        $paket->where('id_paket', $id)->delete();
+        Gambar::where('id_paket', $id)->delete();
+        return redirect('/admin/list')->with('status', "Data Berhasil Dihapus");
+    }
+    public function listpack(Request $request)
+    {
+        $context = [
+            'nama_halaman' => "List Paket",
+            'allpaket' => Paket::all()
+        ];
+
+
+        return view('admin.listpack', $context);
+    }
+    public function order(Request $request)
+    {
+        $context = [
+            'nama_halaman' => "List Order",
+            'orda1' => Order::where('status_pembayaran',1)->get(),
+            'orda2' => Order::where('status_pembayaran',2)->get(),
+            'orda3' => Order::where('status_pembayaran',3)->orWhere('status_pembayaran',4)->get(),
+        ];
+
+
+        return view('admin.onodera', $context);
+    }
 }

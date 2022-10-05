@@ -18,6 +18,16 @@ class Home extends Controller
     //         return redirect()->intended('login');
     //     }
     // }
+    public function index()
+    {
+        $context = [
+            'nama_halaman' => "Welcome to Toreva",
+            'type' => 1,
+            'allpaket' => Paket::all()->take(3),
+            'gambar' => Gambar::where('image_name', 'like', '%' . 'image_1' . '%')->get()
+        ];
+        return view('home.index', $context);
+    }
     public function detail($id)
     {
 
@@ -76,7 +86,11 @@ class Home extends Controller
             'status_pembayaran' => 1,
             'tenggat_pembayaran' => $tenggat
         ]);
-
+        $detail = [
+            'title' => $kode,
+            'body' => "Gunakan kode diatas untuk mengecek status pesanan di menu beranda website toreva."
+        ];
+        \Mail::to($request->email)->send(new \App\Mail\TestMail($detail));
         return redirect()->route('invoice', ['id' => $con])->with('status', $kode);
     }
     public function bukti(Request $request, $id)
@@ -144,15 +158,4 @@ class Home extends Controller
             }
         }
     }
-    public function index()
-    {
-        $context = [
-            'nama_halaman' => "Welcome to Toreva",
-            'type' => 1,
-            'allpaket' => Paket::all()->take(3),
-            'gambar' => Gambar::where('image_name', 'like', '%' . 'image_1' . '%')->get()
-        ];
-        return view('home.index', $context);
-    }
-    
 }

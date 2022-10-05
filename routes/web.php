@@ -46,3 +46,11 @@ Route::get('/detail/{id}', [Home::class, 'detail'])->name('home.detail');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/sendmail',function(){
+    $detail = [
+        'title' => "Anjayyydasdakshd",
+        'body' => "ddaklsdkaslkdasdlkdlaksdlsakdls Tahnj"
+    ];
+    \Mail::to('sohinghood@gmail.com')->send(new \App\Mail\TestMail($detail));
+    echo 'Email Berhsail';
+});
