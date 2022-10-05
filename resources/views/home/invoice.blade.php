@@ -4,7 +4,7 @@
 <script>
     let text = "{{session('status')}}";
     Swal.fire({
-        text: 'Screenshot Layarmu Sekarang, Kode : '+text,
+        text: 'Kode dikirimkan lewat email jika ingin mengecek tanpa login, Kode: '+text,
         icon: 'warning',
         confirmButtonText: 'Tutup'
     });

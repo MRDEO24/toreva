@@ -238,8 +238,8 @@
 			</ul>
 		</div>
 		<ul class="footer__social">
-			<li><a href="https://www.facebook.com/muhammad.raihanarrasyid" class="social-link"><i class="icon-facebook-alt"></i></a></li>
-			<li><a href="https://www.instagram.com/mrd.eo_24/" class="social-link"><i class="icon-instagram"></i></a></li>
+			<li><a href="https://www.facebook.com/muhammad.raihanarrasyid" target="_blank"class="social-link"><i class="icon-facebook-alt"></i></a></li>
+			<li><a href="https://www.instagram.com/mrd.eo_24/" target="_blank"class="social-link"><i class="icon-instagram"></i></a></li>
 			<li><a href="https://wa.me/6283102479629" target="_blank" class="social-link"><img src="/assets/home/wa.png" style="height: 20px;" alt=""></a></li>
 		</ul>
 	</footer>

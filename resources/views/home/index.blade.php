@@ -104,7 +104,7 @@
 			        <h1 class="title title--h1 js-lines">Top Package</h1>
 			    </div>
 				<div class="col-12 col-md-12 col-lg-4 text-lg-right d-none d-md-block">
-				    <a class="btn-link header-btn-more" href="rooms.html">Lihat Semua</a>
+				    <a class="btn-link header-btn-more" href="/package">Lihat Semua</a>
 				</div>
 			</div>
 			
@@ -133,7 +133,7 @@
 						        </figure>
 						        <div class="itemRoom__details">
 						            <h4 class="title title--h4">{{$p->nama_paket}}</h4>
-							        <div class="itemRoom__price">Rp.{{$p->harga_dewasa}}<span>/pack</span></div>
+							        <div class="itemRoom__price">Rp.{{number_format($p->harga_dewasa)}}<span>/pack</span></div>
 						        </div>	
 					        </div>
                             @endforeach
@@ -248,7 +248,7 @@
 			    <div class="col-12 col-lg-7">
 			        <h2 class="title title--h2 js-lines">Make deal for adventure.</h2>
 				    <p class="paragraph js-lines">Pesan paket Anda sekarang juga dan mulailah petualangan menakjubkan Anda yang penuh dengan penemuan dan pengalaman bersama Toreva.</p>
-					<a href="rooms.html" class="btn btn__large js-scroll-show">Pesan Sekarang<i class="btn-icon-right icon-arrow-special"></i></a>
+					<a href="/package" class="btn btn__large js-scroll-show">Pesan Sekarang<i class="btn-icon-right icon-arrow-special"></i></a>
 				</div>
 			</div>
 	    </section>
